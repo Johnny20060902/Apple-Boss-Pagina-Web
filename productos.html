@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Boss - Productos</title>
+    <link rel="stylesheet" href="css/estiloauxiliar.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="icono.ico">
+</head>
+<body>
+    <!-- Fondo Animado -->
+    <canvas id="backgroundCanvas"></canvas>
+
+    <!-- Header -->
+    <!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo2.png" alt="Apple Boss Logo" class="logo-img">
+        </a>
+        
+        <!-- Ícono de menú -->
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menú de navegación -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="productos.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link category-filter" href="#" data-category="category-computadoras">Computadoras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link category-filter" href="#" data-category="category-telefonos">Teléfonos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link category-filter" href="#" data-category="category-ofertas">Ofertas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link category-filter" href="#" data-category="category-accesorios">Accesorios</a>
+                </li>
+                <!-- Botón del carrito -->
+                <li class="nav-item">
+                    <a href="#" class="btn btn-outline-primary d-flex align-items-center" data-toggle="modal" data-target="#cartModal">
+                        <i class="fas fa-shopping-cart fa-lg mr-2"></i> Ver Carrito
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Productos del carrito -->
+                <div id="cart-items"></div>
+
+                <!-- Total -->
+                <div id="cart-total" class="mt-3">
+                    <strong>Total a pagar:</strong> Bs <span id="total-price">0.00</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Ir a pagar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Sección de Productos -->
+<div class="container product-section mt-5">
+    <h2 class="text-center text-white">Dispositivos disponibles:</h2>
+    <div class="row">
+        <!-- Producto: Air M3 de 13 pulgadas de 256GB -->
+        <div class="col-md-4 product-card category-computadoras">
+            <div class="card">
+                <img src="images/computadoras o laptops/Air M3 de 13 pulgadas de 256gb.jpg" class="card-img-top" alt="MacBook Air M3 256GB">
+                <div class="card-body">
+                    <h5 class="card-title"><b>MacBook Air M3 de 13 pulgadas 256GB</b></h5>
+                    <p class="card-text">Laptop Air M3 de 13 pulgadas, batería con 100% de salud.</p>
+                    <p class="card-text font-weight-bold">Bs 14,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="MacBook Air M3 256GB" data-precio="14500" data-imagen="images/computadoras o laptops/Air M3 de 13 pulgadas de 256gb.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Producto: AirPods Pro 2da generación -->
+        <div class="col-md-4 product-card category-accesorios">
+            <div class="card">
+                <img src="images/accesorios/AppleAirPodsPro2gen.jpg" class="card-img-top" alt="AirPods Pro 2da Generación">
+                <div class="card-body">
+                    <h5 class="card-title"><b>AirPods Pro 2da Generación</b></h5>
+                    <p class="card-text">Auriculares con cancelación de ruido y batería 100%.</p>
+                    <p class="card-text font-weight-bold">Bs 2,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="AirPods Pro 2da Generación" data-precio="2500" data-imagen="images/accesorios/AppleAirPodsPro2gen.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Producto: Apple Magic Mouse -->
+        <div class="col-md-4 product-card category-accesorios">
+            <div class="card">
+                <img src="images/accesorios/AppleMagicMouse.png" class="card-img-top" alt="Apple Magic Mouse">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Apple Magic Mouse</b></h5>
+                    <p class="card-text">Ratón inalámbrico con diseño ergonómico. Compatible con macOS.</p>
+                    <p class="card-text font-weight-bold">Bs 800.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="Apple Magic Mouse" data-precio="800" data-imagen="images/accesorios/AppleMagicMouse.png">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Teléfonos -->
+        <div class="col-md-4 product-card category-telefonos">
+            <div class="card">
+                <img src="images/telefonos/iphone16.jpg" class="card-img-top" alt="iPhone 16 PRO MAX">
+                <div class="card-body">
+                    <h5 class="card-title"><b>iPhone 16 PRO MAX 256GB</b></h5>
+                    <p class="card-text">Batería 100%, Nuevo.</p>
+                    <p class="card-text font-weight-bold">Bs 14,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="iPhone 16 PRO MAX 256GB" data-precio="14500" data-imagen="images/telefonos/iphone16.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product-card category-telefonos">
+            <div class="card">
+                <img src="images/telefonos/15PROMAX.jpg" class="card-img-top" alt="iPhone 15 PRO MAX">
+                <div class="card-body">
+                    <h5 class="card-title"><b>iPhone 15 PRO MAX 256GB</b></h5>
+                    <p class="card-text">Batería impecable, semi-nuevo.</p>
+                    <p class="card-text font-weight-bold">Bs 11,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="iPhone 15 PRO MAX 256GB" data-precio="11500" data-imagen="images/telefonos/15PROMAX.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product-card category-telefonos">
+            <div class="card">
+                <img src="images/ofertas/oferta1.png" class="card-img-top" alt="iPhone 12">
+                <div class="card-body">
+                    <h5 class="card-title"><b>iPhone 12 128GB</b></h5>
+                    <p class="card-text">Incluye cargador de carga rápida.</p>
+                    <p class="card-text font-weight-bold">Bs 4,000.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="iPhone 12 128GB" data-precio="4000" data-imagen="images/ofertas/oferta1.png">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promos -->
+        <div class="col-md-4 product-card category-ofertas">
+            <div class="card">
+                <img src="images/promos/promo1.jpg" class="card-img-top" alt="Promo 1">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Promo 1: iPhone 12 PRO MAX 256GB</b></h5>
+                    <p class="card-text">Batería 81%, incluye funda y cargador.</p>
+                    <p class="card-text font-weight-bold">Bs 5,700.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="Promo 1: iPhone 12 PRO MAX" data-precio="5700" data-imagen="images/promos/promo1.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product-card category-ofertas">
+            <div class="card">
+                <img src="images/promos/promo2.jpg" class="card-img-top" alt="Promo 2">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Promo 2: iPhone 12 PRO MAX 256GB</b></h5>
+                    <p class="card-text">Batería 85%, incluye funda y cargador.</p>
+                    <p class="card-text font-weight-bold">Bs 5,150.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="Promo 2: iPhone 12 PRO MAX" data-precio="5150" data-imagen="images/promos/promo2.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product-card category-ofertas">
+            <div class="card">
+                <img src="images/promos/promo3.jpg" class="card-img-top" alt="Promo 3">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Promo 3: iPhone 12 128GB</b></h5>
+                    <p class="card-text">Batería 95%, incluye funda y cargador.</p>
+                    <p class="card-text font-weight-bold">Bs 4,000.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="Promo 3: iPhone 12 128GB" data-precio="4000" data-imagen="images/promos/promo3.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accesorios -->
+        <div class="col-md-4 product-card category-accesorios">
+            <div class="card">
+                <img src="images/accesorios/audifonos/airpods4gen.png" class="card-img-top" alt="Airpods 4Gen">
+                <div class="card-body">
+                    <h5 class="card-title"><b>AirPods 4Gen</b></h5>
+                    <p class="card-text">Seminuevo, batería 100%.</p>
+                    <p class="card-text font-weight-bold">Bs 2,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="AirPods 4Gen" data-precio="2500" data-imagen="images/accesorios/audifonos/airpods4gen.png">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product-card category-accesorios">
+            <div class="card">
+                <img src="images/accesorios/apple watch/iwatch2gen.png" class="card-img-top" alt="Apple Watch 2Gen">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Apple Watch 2Gen</b></h5>
+                    <p class="card-text">Semi-nuevo, batería 96%.</p>
+                    <p class="card-text font-weight-bold">Bs 2,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="Apple Watch 2Gen" data-precio="2500" data-imagen="images/accesorios/apple watch/iwatch2gen.png">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product-card category-accesorios">
+            <div class="card">
+                <img src="images/accesorios/fundas/funda14.jpg" class="card-img-top" alt="Funda Protectora">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Funda Protectora</b></h5>
+                    <p class="card-text">Para iPhone 14, diseño elegante.</p>
+                    <p class="card-text font-weight-bold">Bs 70.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="Funda Protectora" data-precio="70" data-imagen="images/accesorios/fundas/funda14.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Laptops -->
+        <div class="col-md-4 product-card category-computadoras">
+            <div class="card">
+                <img src="images/computadoras o laptops/AirM213'Plg256GB.jpg" class="card-img-top" alt="MacBook Air M2 256GB">
+                <div class="card-body">
+                    <h5 class="card-title"><b>MacBook Air M2 de 13” 256GB</b></h5>
+                    <p class="card-text">Laptop nueva, batería 100%.</p>
+                    <p class="card-text font-weight-bold">Bs 14,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="MacBook Air M2 13” 256GB" data-precio="14500" data-imagen="images/computadoras o laptops/AirM213'Plg256GB.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 product-card category-computadoras">
+            <div class="card">
+                <img src="images/computadoras o laptops/AirM215'Plg512GB.jpg" class="card-img-top" alt="MacBook Air M2 512GB">
+                <div class="card-body">
+                    <h5 class="card-title"><b>MacBook Air M2 de 15” 512GB</b></h5>
+                    <p class="card-text">Laptop nueva, batería impecable.</p>
+                    <p class="card-text font-weight-bold">Bs 19,500.00</p>
+                    <a href="#" class="btn btn-primary add-to-cart" data-nombre="MacBook Air M2 15” 512GB" data-precio="19500" data-imagen="images/computadoras o laptops/AirM215'Plg512GB.jpg">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- Footer -->
+    <footer class="text-center text-white mt-5">
+        <div class="social-links mb-4">
+                <h5>Síguenos en nuestras redes</h5>
+                <a href="https://www.facebook.com/Applebossbo" class="text-white m-2" target="_blank">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com/apple_boss_bol?igsh=cXhqdWRqb2FsNWJ3&utm_source=qr" class="text-white m-2" target="_blank">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://wa.me/59175904313" class="text-white m-2" target="_blank">
+                    <i class="fab fa-whatsapp fa-2x"></i>
+                </a>
+                <a href="https://www.tiktok.com/@apple_boss_bo" class="text-white m-2" target="_blank">
+                    <i class="fab fa-tiktok fa-2x"></i>
+                </a>
+            </div>
+        <p>&copy; 2024 Apple Boss - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/movimientofondo.js"></script>
+    <script src="js/carrito.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const categoryLinks = document.querySelectorAll('.category-filter'); // Enlaces del navbar
+        const products = document.querySelectorAll('.product-card'); // Todos los productos
+
+        // Añade el evento de clic a cada enlace del navbar
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+                const category = link.getAttribute('data-category'); // Obtiene la categoría seleccionada
+
+                // Filtra los productos
+                products.forEach(product => {
+                    if (category === 'all') {
+                        product.style.display = 'block'; // Muestra todos los productos
+                    } else if (product.classList.contains(category)) {
+                        product.style.display = 'block'; // Muestra solo los de la categoría seleccionada
+                    } else {
+                        product.style.display = 'none'; // Oculta el resto
+                    }
+                });
+
+                // Actualiza la clase activa en el navbar
+                categoryLinks.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    });
+    </script>
+</body>
+</html>

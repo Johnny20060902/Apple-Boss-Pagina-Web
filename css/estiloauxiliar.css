@@ -79,4 +79,33 @@ footer i:hover {
     color: #007bff;
     text-decoration: underline;
 }
+/* Animación de desplazamiento desde la izquierda */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%); /* Empieza fuera de la pantalla a la izquierda */
+        opacity: 0; /* Comienza invisible */
+    }
+    100% {
+        transform: translateX(0); /* Llega a su posición original */
+        opacity: 1; /* Aparece completamente */
+    }
+}
+
+/* Clase para la imagen animada */
+.animated-frase {
+    animation: slideInFromLeft 2s ease-out; /* Duración de 2 segundos con efecto suavizado */
+}
+.logo-img {
+    max-width: 500px; 
+    width: 100%; 
+    height: 100px; 
+    object-fit: contain; 
+    display: block; 
+    margin: 0 auto; 
+    transform: translateX(-10px); 
+    margin-left: -50px;
+}
+
+
+
 
