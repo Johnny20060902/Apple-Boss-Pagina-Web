@@ -105,7 +105,79 @@ footer i:hover {
     transform: translateX(-10px); 
     margin-left: -50px;
 }
+/* Contenedor principal */
+.product-section {
+    display: grid; /* Usar diseño Grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas ajustables al tamaño del contenedor */
+    gap: 20px; /* Espaciado entre tarjetas */
+    padding: 2rem 0;
+}
 
+/* Tarjetas de producto */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd; /* Borde para destacar la tarjeta */
+    border-radius: 8px;
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    overflow: hidden;
+    height:500px; /* Altura fija */
+    text-align: center;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Imágenes */
+.product-card img {
+    width: 100%; /* Imágenes ocupan todo el ancho del contenedor */
+    height: 60%; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Ajustar imágenes dentro del contenedor sin deformarlas */
+}
+
+/* Cuerpo de la tarjeta */
+.product-card .card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.product-card h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.product-card .btn {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Ocultar tarjetas filtradas */
+.product-card.hidden {
+    display: none !important; /* Ocultar completamente la tarjeta */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .product-card {
+        height: auto; /* Altura ajustable en dispositivos pequeños */
+    }
+
+    .product-card img {
+        height: 150px; /* Reducir altura de las imágenes */
+    }
+}
 
 
 

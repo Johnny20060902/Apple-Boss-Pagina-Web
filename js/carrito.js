@@ -1,74 +1,19 @@
 $(document).ready(function () {
-    // Carrito de compras (simulación inicial)
-    const carrito = [];
-
-    // Función para agregar productos al carrito
-    function agregarProducto(nombre, precio) {
-        const productoExistente = carrito.find(producto => producto.nombre === nombre);
-        if (productoExistente) {
-            productoExistente.cantidad += 1; // Incrementa la cantidad si ya está en el carrito
-        } else {
-            carrito.push({ nombre, precio, cantidad: 1 });
-        }
-        actualizarCarrito();
-    }
-
-    // Función para actualizar el contenido del carrito
-    function actualizarCarrito() {
-        const cartItems = $('#cart-items');
-        const totalPrice = $('#total-price');
-        let total = 0; // Variable para calcular el total
-
-        cartItems.empty(); // Limpia los productos anteriores en el modal
-
-        if (carrito.length === 0) {
-            // Si el carrito está vacío, mostrar mensaje
-            cartItems.html('<p>Tu carrito está vacío.</p>');
-            totalPrice.text('0.00'); // Total a pagar es 0
-        } else {
-            // Recorre los productos del carrito
-            carrito.forEach(producto => {
-                // Suma al total el precio por la cantidad
-                total += producto.precio * producto.cantidad;
-
-                // Añade cada producto al modal
-                cartItems.append(`
-                    <div class="producto">
-                        <p><strong>${producto.nombre}</strong> - Bs ${producto.precio} x ${producto.cantidad} = Bs ${(producto.precio * producto.cantidad).toFixed(2)}</p>
-                    </div>
-                `);
-            });
-
-            // Muestra el total calculado en el modal
-            totalPrice.text(total.toFixed(2)); // Muestra el total con dos decimales
-        }
-    }
-
-    // Evento: Agregar productos al carrito desde botones
-    $('.add-to-cart').on('click', function () {
-        const nombre = $(this).data('nombre');
-        const precio = parseFloat($(this).data('precio'));
-        agregarProducto(nombre, precio);
-    });
-
-    // Evento: Abre el modal y muestra el carrito actualizado
-    $('[data-target="#cartModal"]').on('click', function () {
-        actualizarCarrito();
-    });
-});
-$(document).ready(function () {
-    // Carrito de compras (simulación inicial)
+    // Inicializamos el carrito vacío
     const carrito = [];
 
     // Función para agregar productos al carrito
     function agregarProducto(nombre, precio, imagen) {
+        // Buscar si el producto ya existe en el carrito
         const productoExistente = carrito.find(producto => producto.nombre === nombre);
+
         if (productoExistente) {
-            productoExistente.cantidad += 1; // Incrementa la cantidad si ya está en el carrito
+            productoExistente.cantidad += 1; // Si existe, aumenta la cantidad
         } else {
-            carrito.push({ nombre, precio, cantidad: 1, imagen });
+            carrito.push({ nombre, precio, cantidad: 1, imagen }); // Si no existe, lo agrega
         }
-        actualizarCarrito();
+
+        actualizarCarrito(); // Actualiza el carrito
     }
 
     // Función para eliminar un producto del carrito
@@ -77,28 +22,27 @@ $(document).ready(function () {
         if (index !== -1) {
             carrito.splice(index, 1); // Elimina el producto del carrito
         }
-        actualizarCarrito();
+        actualizarCarrito(); // Actualiza el carrito
     }
 
     // Función para actualizar el contenido del carrito
     function actualizarCarrito() {
-        const cartItems = $('#cart-items');
-        const totalPrice = $('#total-price');
+        const cartItems = $('#cart-items'); // Contenedor de productos en el carrito
+        const totalPrice = $('#total-price'); // Contenedor del precio total
         let total = 0; // Variable para calcular el total
 
-        cartItems.empty(); // Limpia los productos anteriores en el modal
+        cartItems.empty(); // Limpia los productos anteriores en el carrito
 
         if (carrito.length === 0) {
             // Si el carrito está vacío, mostrar mensaje
             cartItems.html('<p>Tu carrito está vacío.</p>');
             totalPrice.text('0.00'); // Total a pagar es 0
         } else {
-            // Recorre los productos del carrito
+            // Recorre los productos del carrito y los muestra
             carrito.forEach(producto => {
-                // Suma al total el precio por la cantidad
-                total += producto.precio * producto.cantidad;
+                total += producto.precio * producto.cantidad; // Calcula el total
 
-                // Añade cada producto al modal con imagen, nombre, precio, cantidad y botón de eliminar
+                // Añade el producto al carrito con imagen, nombre, precio y botón de eliminar
                 cartItems.append(`
                     <div class="producto d-flex align-items-center justify-content-between border-bottom pb-2 mb-2">
                         <img src="${producto.imagen}" alt="${producto.nombre}" width="50" height="50">
@@ -111,27 +55,27 @@ $(document).ready(function () {
                 `);
             });
 
-            // Muestra el total calculado en el modal
-            totalPrice.text(total.toFixed(2)); // Muestra el total con dos decimales
+            // Muestra el total calculado
+            totalPrice.text(total.toFixed(2)); // Total con dos decimales
         }
 
         // Evento para eliminar productos del carrito
-        $('.eliminar-producto').on('click', function () {
+        $('.eliminar-producto').off('click').on('click', function () {
             const nombre = $(this).data('nombre');
-            eliminarProducto(nombre);
+            eliminarProducto(nombre); // Llama a la función para eliminar el producto
         });
     }
 
     // Evento: Agregar productos al carrito desde botones
     $('.add-to-cart').on('click', function () {
-        const nombre = $(this).data('nombre');
-        const precio = parseFloat($(this).data('precio'));
-        const imagen = $(this).data('imagen');
-        agregarProducto(nombre, precio, imagen);
+        const nombre = $(this).data('nombre'); // Obtiene el nombre del producto
+        const precio = parseFloat($(this).data('precio')); // Obtiene el precio del producto
+        const imagen = $(this).data('imagen'); // Obtiene la imagen del producto
+        agregarProducto(nombre, precio, imagen); // Agrega el producto al carrito
     });
 
-    // Evento: Abre el modal y muestra el carrito actualizado
+    // Evento: Mostrar el carrito al abrir el modal
     $('[data-target="#cartModal"]').on('click', function () {
-        actualizarCarrito();
+        actualizarCarrito(); // Actualiza el carrito cuando se abre el modal
     });
 });

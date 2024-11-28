@@ -1,4 +1,4 @@
-// Obtener todos los enlaces de categoría y los productos
+// Obtener todos los enlaces de categoría y las tarjetas de productos
 const categoryLinks = document.querySelectorAll('.category-link');
 const productCards = document.querySelectorAll('.product-card');
 
@@ -17,9 +17,9 @@ categoryLinks.forEach(link => {
         // Mostrar u ocultar productos según la categoría
         productCards.forEach(card => {
             if (category === 'all' || card.classList.contains(`category-${category}`)) {
-                card.style.display = 'block';
+                card.classList.remove('hidden'); // Mostrar producto
             } else {
-                card.style.display = 'none';
+                card.classList.add('hidden'); // Ocultar producto
             }
         });
     });
